@@ -6,6 +6,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Base styles for body and html */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,6 +16,7 @@
             color: white;
         }
 
+        /* Header styling */
         header {
             display: flex;
             justify-content: space-between;
@@ -28,17 +30,20 @@
             box-sizing: border-box;
         }
 
+        /* Logo styling */
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: white;
         }
 
+        /* Navigation and menu styling */
         .navigation, .menu {
             display: flex;
             gap: 15px;
         }
 
+        /* Styles for navigation buttons */
         .nav-button {
             padding: 10px 20px;
             border: none;
@@ -51,11 +56,13 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
+        /* Hover effect for navigation buttons */
         .nav-button:hover {
             background-color: #555;
             transform: scale(1.05);
         }
 
+        /* Menu icon styling for mobile */
         .menu-icon {
             display: none;
             font-size: 30px;
@@ -63,6 +70,7 @@
             color: white;
         }
 
+        /* Mobile menu styling */
         .menu {
             display: none;
             flex-direction: column;
@@ -78,10 +86,12 @@
             width: 200px;
         }
 
+        /* Display the menu when active */
         .menu.active {
             display: flex;
         }
 
+        /* Styling for menu items */
         .menu a {
             padding: 10px 20px;
             border-radius: 5px;
@@ -92,10 +102,12 @@
             transition: background-color 0.3s ease;
         }
 
+        /* Hover effect for menu items */
         .menu a:hover {
             background-color: #555;
         }
 
+        /* Section styling */
         section {
             padding: 80px 20px;
             text-align: center;
@@ -103,34 +115,44 @@
             margin: 20px 0;
             border-radius: 10px;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            min-height: 400px;       /* Set a minimum height for vertical centering */
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Container styling for login section */
+        .login-section {
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center;     /* Center content vertically */
         }
 
-        .home-content, .contact-content, .about-content, .login-form {
+        /* Login form styling */
+        .login-form {
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 400px; /* Adjusted max-width for better centering */
             width: 100%;
             text-align: left;
             color: #333;
         }
 
+        /* Input group styling */
         .input-group {
             margin-bottom: 15px;
             width: 100%;
         }
 
+        /* Label styling for inputs */
         .input-group label {
             display: block;
             margin-bottom: 5px;
             color: #333;
         }
 
+        /* Input field styling */
         .input-group input {
             width: 100%;
             padding: 10px;
@@ -139,6 +161,7 @@
             box-sizing: border-box;
         }
 
+        /* Submit button styling */
         .submit-button {
             padding: 10px 20px;
             background-color: #ff5722;
@@ -149,10 +172,12 @@
             font-size: 16px;
         }
 
+        /* Hover effect for submit button */
         .submit-button:hover {
             background-color: #e64a19;
         }
 
+        /* Forgot password link styling */
         .forgot-password {
             margin-top: 10px;
         }
@@ -162,6 +187,7 @@
             text-decoration: underline;
         }
 
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -171,48 +197,55 @@
             bottom: 0;
         }
 
+        /* Media Query for tablets and small desktops */
         @media (max-width: 768px) {
             .navigation {
-                display: none;
+                display: none; /* Hide the navigation for smaller screens */
             }
 
             .menu-icon {
-                display: block;
+                display: block; /* Show menu icon on smaller screens */
             }
 
             .menu {
-                width: calc(100% - 40px);
+                width: calc(100% - 40px); /* Full-width menu with padding */
                 right: 20px;
             }
 
             section {
-                padding: 60px 20px;
+                padding: 60px 20px; /* Reduced padding for smaller screens */
             }
 
             .container {
-                padding: 0 20px;
+                padding: 0 20px; /* Add padding for better spacing */
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header section -->
     <header>
         <div class="logo">AquaVisionX</div>
+        <!-- Navigation links -->
         <nav class="navigation">
             <a href="#home" class="nav-button">Home</a>
             <a href="#contactus" class="nav-button">Contact Us</a>
             <a href="#aboutus" class="nav-button">About Us</a>
             <a href="#login" class="nav-button">Login</a>
         </nav>
+        <!-- Menu icon for mobile view -->
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </header>
 
+    <!-- Mobile menu -->
     <div class="menu">
         <a href="#home" class="nav-button" onclick="toggleMenu()">Home</a>
         <a href="#contactus" class="nav-button" onclick="toggleMenu()">Contact Us</a>
         <a href="#aboutus" class="nav-button" onclick="toggleMenu()">About Us</a>
         <a href="#login" class="nav-button" onclick="toggleMenu()">Login</a>
     </div>
+
+    <!-- Home section -->
     <section id="home" class="home-section">
         <div class="container">
             <div class="home-content">
@@ -221,6 +254,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Us section -->
     <section id="contactus" class="contact-section">
         <div class="container">
             <div class="contact-content">
@@ -230,6 +265,8 @@
             </div>
         </div>
     </section>
+
+    <!-- About Us section -->
     <section id="aboutus" class="about-section">
         <div class="container">
             <div class="about-content">
@@ -238,6 +275,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Login section -->
     <section id="login" class="login-section">
         <div class="container">
             <div class="login-form">
@@ -259,9 +298,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer section -->
     <footer>
         <p>&copy; AquaVisionX. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript to toggle mobile menu visibility -->
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.menu');
