@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 // Function to generate random sensor data
 function generateSensorData() {
