@@ -1,8 +1,8 @@
-const express = require('express');
-//const { postData, getData } = //require('../controllers/dataController');
+import express from 'express';
+import dataController from '../controllers/dataController.js';
+
 const router = express.Router();
 
-router.post('/data', postData);
-router.get('/data', getData);
+router.post('/sensor-data', dataController.createData);
 
-module.exports = router;
+export default router;
