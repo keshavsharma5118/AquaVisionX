@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 // Replace with the connection URL provided by your friend
-const url = 'mongodb://username:password@host:port/database';
+const url = 'mongodb+srv://pratikkumarsah07:BxCIcIk3W92FHopd@aquavisionx.phg2dvb.mongodb.net/';
 const dbName = 'AquaVisionX'; // The database name
 
 let db = null;
