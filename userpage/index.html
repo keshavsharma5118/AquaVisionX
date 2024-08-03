@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left"></div>
+            <div class="header-right">
+                
+                <span class="material-icons-outlined" >logout</span>
+            
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">AquaVisionX</div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+        </aside>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container" style="background-image: url('pratik.jpg');background-size: cover; background-position: center;">
+            <div class="main-title">
+                <h2 style="background:rgba(0,0,0,0.6);">DASHBOARD</h2>
+            </div>
+            
+            <div class="search-bar">
+                
+                <span>STATE NAME
+                    <select name="clgState" id="clgState" class="search-bar" onchange="populateDistricts(this.value)" style="color: antiquewhite;">
+                        <option value="">Select State</option>
+                        <!-- Add other states here -->
+                        <option value="900">All</option>
+                        <option value="30">Andaman and Nicobar Islands</option>
+                        <option value="1">Andhra Pradesh</option>
+                        <option value="2">Arunachal Pradesh</option>
+                        <option value="3">Assam</option>
+                        <option value="4">Bihar</option>
+                        <option value="31">Chandigarh</option>
+                        <option value="5">Chhattisgarh</option>
+                        <option value="32">Dadar and Nagar Haveli</option>
+                        <option value="33">Daman and Diu</option>
+                        <option value="34">Delhi</option>
+                        <option value="6">Goa</option>
+                        <option value="7">Gujarat</option>
+                        <option value="8">Haryana</option>
+                        <option value="9">Himachal Pradesh</option>
+                        <option value="10">Jammu and Kashmir</option>
+                        <option value="11">Jharkhand</option>
+                        <option value="12">Karnataka</option>
+                        <option value="13">Kerala</option>
+                        <option value="35">Lakshadweep</option>
+                        <option value="14">Madhya Pradesh</option>
+                        <option value="15">Maharashtra</option>
+                        <option value="16">Manipur</option>
+                        <option value="17">Meghalaya</option>
+                        <option value="18">Mizoram</option>
+                        <option value="19">Nagaland</option>
+                        <option value="20">Odisha</option>
+                        <option value="36">Puducherry</option>
+                        <option value="21">Punjab</option>
+                        <option value="22">Rajasthan</option>
+                        <option value="23">Sikkim</option>
+                        <option value="24">Tamil Nadu</option>
+                        <option value="25">Telangana</option>
+                        <option value="26">Tripura</option>
+                        <option value="27">Uttar Pradesh</option>
+                        <option value="28">Uttarakhand</option>
+                        <option value="29">West Bengal</option>
+                        <!-- Add other states here -->
+                    </select>
+                </span>
+            </div>
+            <div class="search-bar">
+                <span>DISTRICT NAME
+                    <select name="clgDistrict" id="clgDistrict" class="search-bar" onchange="populateReservoirs(this.value)" style="color: antiquewhite;">
+                        <option value="">Select District</option>
+                        <!-- District options will be populated dynamically -->
+                    </select>
+                </span>
+            </div>
+            <div class="search-bar">
+                <span>SELECT RESERVOIR
+                    <select name="clgReservoir" id="clgReservoir" class="search-bar" style="color: antiquewhite;">
+                        <option value="">Select Reservoir</option>
+                        <!-- Reservoir options will be populated dynamically -->
+                    </select>
+                </span>
+            </div>
+            <div class="search-button">
+               <span> <button id="searchButton" class="search-button" onclick="performSearch()"><span>Search</span></button></span>
+            </div>
+        </main>
+        <!-- End Main -->
+
+    </div>
+<!-- Footer -->
+ <div><footer class="footer">
+    <p>&copy; 2024 AquaVisionX. All rights reserved.</p>
+</footer>
+</div>
+<!-- End Footer -->
+
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        function populateDistricts(state) {
+            const districtSelect = document.getElementById('clgDistrict');
+            districtSelect.innerHTML = ''; // Clear previous options
+
+            if (state === '20') { // State value for Odisha
+                const districts = [
+                    'Angul', 'Balangir', 'Balasore', 'Bargarh', 'Bhadrak', 'Bhubaneswar',
+                    'Boudh', 'Cuttack', 'Debagarh', 'Dhenkanal', 'Gajapati', 'Ganjam',
+                    'Jagatsinghpur', 'Jajpur', 'Jharsuguda', 'Kalahandi', 'Kandhamal',
+                    'Kendrapara', 'Kendujhar', 'Khordha', 'Koraput', 'Malkangiri',
+                    'Mayurbhanj', 'Nabarangpur', 'Nayagarh', 'Nuapada', 'Puri',
+                    'Rayagada', 'Rourkela', 'Sambalpur', 'Subarnapur', 'Sundargarh'
+                ];
+
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select District';
+                districtSelect.appendChild(defaultOption);
+
+                districts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district.toLowerCase().replace(' ', '-');
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } else {
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select District';
+                districtSelect.appendChild(defaultOption);
+            }
+            
+            // Clear reservoir options when state changes
+            populateReservoirs('');
+        }
+
+        function populateReservoirs(district) {
+            const reservoirSelect = document.getElementById('clgReservoir');
+            reservoirSelect.innerHTML = ''; // Clear previous options
+
+            const reservoirs = {
+                'rayagada': [
+                    'Rayagada', 'Gunupur', 'Bikrampur'
+                ]
+                // Add more districts and their reservoirs here
+            };
+
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Select Reservoir';
+            reservoirSelect.appendChild(defaultOption);
+
+            if (reservoirs[district]) {
+                reservoirs[district].forEach(reservoir => {
+                    const option = document.createElement('option');
+                    option.value = reservoir.toLowerCase().replace(' ', '-');
+                    option.textContent = reservoir;
+                    reservoirSelect.appendChild(option);
+                });
+            }
+        }
+
+        function performSearch() {
+            const state = document.getElementById('clgState').value;
+            const district = document.getElementById('clgDistrict').value;
+            const reservoir = document.getElementById('clgReservoir').value;
+
+            alert(`Searching for State: ${state}, District: ${district}, Reservoir: ${reservoir}`);
+            // Add your search functionality here
+        }
+    </script>
+</body>
+
+</html>
